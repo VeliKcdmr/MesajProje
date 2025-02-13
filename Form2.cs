@@ -19,6 +19,7 @@ namespace MesajProje
         }
         public string numara;
         SqlConnection baglanti = new SqlConnection("Data Source=RAMPAGE\\SQLEXPRESS;Initial Catalog=DbMesaj;Integrated Security=True");
+        //Giriş formuna yazılan numara dan bilgileri getirme işlemi
         void BilgiGetir()
         {
             LblNumara.Text = numara;
@@ -35,6 +36,7 @@ namespace MesajProje
             }
             baglanti.Close();
         }
+        //gelen kutusuna verileri çekme
         void GelenKutusu()
         {
             baglanti.Open();
@@ -47,6 +49,7 @@ namespace MesajProje
             dataGridView1.Columns[0].Visible = false;
             baglanti.Close();
         }
+        //giden kutusuna verileri çekme
         void GidenKutusu()
         {
             baglanti.Open();
@@ -58,6 +61,7 @@ namespace MesajProje
             dataGridView2.DataSource = dt;
             baglanti.Close();
         }
+        //form yüklendiğinde gerekli bilgileri getirme işlemi
         private void Form2_Load(object sender, EventArgs e)
         {
             BilgiGetir();
@@ -65,12 +69,14 @@ namespace MesajProje
             GidenKutusu();
 
         }
+        //işlem bitimlerinde kutucukları temizleme işlemi
         void temizle()
         {
             MTxtNumara.Clear();
             TxtBaslik.Clear();
             RTxtMesaj.Clear();
         }
+        //mesaj gönderme işlemi
         private void BtnGonder_Click(object sender, EventArgs e)
         {
             baglanti.Open();
@@ -88,6 +94,7 @@ namespace MesajProje
         }
         public string kime;
         public string baslik;
+        //gridviewdeki satıra tıkladığımızda form3 açılıyor ve gerekli bilgileri dolduruyor
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)

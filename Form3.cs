@@ -15,6 +15,7 @@ namespace MesajProje
     {
         public Form3(string Alicinumara)
         {
+            //mesaj okuma sayfasını kapatınca anca sayfa tekrar açılıyor
             InitializeComponent();
             Form2 frm2 = new Form2();            
             this.FormClosing += (s, e) => frm2.Show();
@@ -26,13 +27,14 @@ namespace MesajProje
         public string mesaj;
         public string Gnumara;
         public string ANumara;
+        //mesaj okuma sayafası için gerekli bilgiler sayfaya taşınıyor
         private void Form3_Load(object sender, EventArgs e)
         {
             LblKimden.Text = kimden;
             LblKonu.Text = konu;
             RtxtMesaj.Text = mesaj;
         }
-
+        //cevapla butonuna tıklayınca ana forma dönüp alıcı ve konu bilgilerini dolduruyor
         private void BtnCevapla_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
