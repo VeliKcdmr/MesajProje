@@ -21,7 +21,6 @@ namespace MesajProje
             this.FormClosing += (s, e) => frm2.Show();
             frm2.numara = Alicinumara;
         }
-
         public string kimden;
         public string konu;
         public string mesaj;
